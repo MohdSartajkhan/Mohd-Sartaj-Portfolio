@@ -1,0 +1,35 @@
+.footer {
+    background: var(--secondary);
+    color: var(--text);
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  .footer h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+  
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+  }
+  
+  .social-icons a {
+    color: var(--text);
+    font-size: 1.5rem;
+    transition: transform 0.3s, color 0.3s;
+  }
+  
+  .social-icons a:hover {
+    transform: scale(1.2);
+    color: var(--accent);
+  }
+  
+  .footer p {
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+  

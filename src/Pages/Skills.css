@@ -1,0 +1,41 @@
+.skills {
+    background: var(--secondary);
+    padding: 80px 20px;
+    color: var(--text);
+  }
+  
+  .skills h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .skill-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 50px;
+  }
+  
+  .skill-bar {
+    position: relative;
+    background-color: var(--muted);
+    border-radius: var(--border-radius);
+    height: 30px;
+    overflow: hidden;
+  }
+  
+  .skill-name {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    color: rgb(47, 41, 41);
+  }
+  
+  .skill-bar span {
+    display: block;
+    height: 100%;
+   }
+  
