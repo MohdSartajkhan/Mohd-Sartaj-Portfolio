@@ -1,27 +1,25 @@
 import React, { useRef, useState } from 'react';
-import emailjs from '@emailjs/browser';
 import { motion } from 'framer-motion';
 import './Contact.css';
 
 const Contact = () => {
-  const form = useRef();
-  const [messageSent, setMessageSent] = useState(false);
+  const messageRef = useRef();
+  const [showSuccess, setShowSuccess] = useState(false);
 
-  const sendEmail = (e) => {
+  const handleSendMessage = (e) => {
     e.preventDefault();
-    emailjs.sendForm(
-      'YOUR_SERVICE_ID',
-      'YOUR_TEMPLATE_ID',
-      form.current,
-      'YOUR_PUBLIC_KEY'
-    )
-    .then(() => {
-      setMessageSent(true);
-      form.current.reset();
-    })
-    .catch((error) => {
-      console.error(error.text);
-    });
+    const message = messageRef.current.value;
+    if (!message) return;
+
+    const phoneNumber = '9044376979'; // Replace with your WhatsApp number
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+    window.open(whatsappURL, '_blank');
+
+    messageRef.current.value = '';
+    setShowSuccess(true);
+
+    setTimeout(() => setShowSuccess(false), 3000);
   };
 
   return (
@@ -32,26 +30,29 @@ const Contact = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          Contact Me
+          Chat with Me
         </motion.h2>
+        
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
         >
-          Have a project in mind, collaboration, or just want to connect? Send me a message!
+          Send your message directly via WhatsApp!
         </motion.p>
+        
 
-        <form ref={form} onSubmit={sendEmail} className="contact-form">
-          <input type="text" name="user_name" placeholder="Your Name" required />
-          <input type="email" name="user_email" placeholder="Your Email" required />
-          <textarea name="message" rows="6" placeholder="Your Message..." required></textarea>
-          <button type="submit">Send Message</button>
+        <form onSubmit={handleSendMessage} className="contact-form">
+          <textarea
+            ref={messageRef}
+            rows="6"
+            placeholder="Type your message..."
+            required
+          ></textarea>
+          <button type="submit">Send to WhatsApp</button>
         </form>
 
-        {messageSent && <p className="success-msg">✅ Message sent successfully!</p>}
-
-        <p className="direct-email">Or reach me at: <strong>mohammedsartajkhan@gmail.com</strong></p>
+        {showSuccess && <div className="toast-success">✅ Message redirected to WhatsApp!</div>}
       </div>
     </section>
   );

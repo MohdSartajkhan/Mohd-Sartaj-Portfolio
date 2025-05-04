@@ -1,54 +1,56 @@
-import React from 'react';
+// src/Pages/Skills.js
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import './Skills.css';
 
+const skillSet = [
+  'Java', 'ChatGPT', 'JavaScript', 'CSS', 'HTML',
+  'React', 'Node.js', 'Kotlin', 'Firebase', 'MongoDB',
+  'Tailwind CSS', 'MySQL', 'IOT', 'Linux', 'Git',
+  'Express.js', 'JavaFX', 'REST APIs', 'Spring Boot', 'Next.js'
+];
+
 const Skills = () => {
+  const [positions, setPositions] = useState(
+    Array(skillSet.length).fill({ x: 0, y: 0 })
+  );
+
+  const handleClick = (index, e) => {
+    const rect = e.target.getBoundingClientRect();
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+
+    const offsetX = (Math.random() - 0.5) * 100;
+    const offsetY = (Math.random() - 0.5) * 100;
+
+    const newPos = [...positions];
+    newPos[index] = { x: offsetX, y: offsetY };
+    setPositions(newPos);
+
+    setTimeout(() => {
+      newPos[index] = { x: 0, y: 0 };
+      setPositions([...newPos]);
+    }, 700); // Reset smoothly
+  };
+
   return (
-    <section className="skills" id="skills">
-      <div className="container">
-        <motion.h2
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-        >
-          Skills
-        </motion.h2>
-        <div className="skill-bars">
-          <motion.div
-            className="skill-bar"
-            initial={{ width: 0 }}
-            animate={{ width: '90%' }}
-            transition={{ duration: 1 }}
+    <div className="skills-container">
+      <h2>Skills</h2>
+      <div className="skills-grid">
+        {skillSet.map((skill, index) => (
+          <div
+            key={index}
+            className="skill-card"
+            style={{
+              transform: `translate(${positions[index].x}px, ${positions[index].y}px)`,
+            }}
+            onClick={(e) => handleClick(index, e)}
           >
-            <span className="skill-name">Java</span>
-          </motion.div>
-          <motion.div
-            className="skill-bar"
-            initial={{ width: 0 }}
-            animate={{ width: '80%' }}
-            transition={{ duration: 2 }}
-          >
-            <span className="skill-name">ChatGPT</span>
-          </motion.div>
-          <motion.div
-            className="skill-bar"
-            initial={{ width: 0 }}
-            animate={{ width: '75%' }}
-            transition={{ duration: 3}}
-          >
-            <span className="skill-name">JavaScript/CSS</span>
-          </motion.div>
-          <motion.div
-            className="skill-bar"
-            initial={{ width: 0 }}
-            animate={{ width: '55%' }}
-            transition={{ duration: 4 }}
-          >
-            <span className="skill-name">IOT</span>
-          </motion.div>
-        </div>
+            {skill}
+          </div>
+        ))}
       </div>
-    </section>
+    </div>
   );
 };
 

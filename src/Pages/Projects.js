@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import './Projects.css';
+import ProfileImage from '../Assets/college-alert.png';
 
 const projectList = [
   {
@@ -14,16 +15,17 @@ const projectList = [
     title: 'College Alert App',
     description: 'Android app to alert students for college activities with direct notification.',
     tech: 'Kotlin, Firebase',
-    link: '#',
-    image: '/assets/college-alert.png',
+    link: "https://github.com/MohdSartajkhan/CollegeAlertApp",
+    image: '/college-alert.png',
   },
   {
-    title: 'Todo List with Alarm',
-    description: 'Advanced Todo app with notifications, alarms, and weekly planning.',
-    tech: 'React.js, MySQL',
-    link: '#',
-    image: '/assets/todo-app.png',
-  },
+    title: "Todo List with Alarm",
+    description: "Advanced Todo app with notifications, alarms, and weekly planning.",
+    tech: "React.js, MySQL",
+    image: "path/to/image.png", // or whatever you use
+    link: "https://to-do-list-using-react-js-sigma.vercel.app/" // ✅ Set this link
+  }
+  ,
 ];
 
 const Projects = () => {

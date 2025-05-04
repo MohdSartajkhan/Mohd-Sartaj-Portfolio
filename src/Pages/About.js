@@ -1,4 +1,6 @@
 import React from 'react';
+import ProfileImage from '../Assets/Profile.jpg';
+
 import { motion } from 'framer-motion';
 import './About.css';
 
@@ -13,13 +15,14 @@ const About = () => {
                 >
                     About Me
                     <motion.img
-                        src="/Assets/Profile.jpg"
+                        src={ProfileImage}
                         alt="Profile"
                         className="profile-img"
                         initial={{ opacity: 0, x: 100 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 1.5 }}
                     />
+
 
                 </motion.h2>
                 <motion.div

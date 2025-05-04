@@ -44,4 +44,58 @@
     color: var(--accent);
     transform: scale(1.2);
   }
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #333;
+  }
+  
+  .logo-text {
+    font-size: 24px;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+  }
+  
+  /* Adding random color change effect */
+  @keyframes randomColor {
+    0% { color: #ff4d4d; }
+    25% { color: #4dff4d; }
+    50% { color: #4d4dff; }
+    75% { color: #ffcc00; }
+    100% { color: #ff4d4d; }
+  }
+  
+  .logo-text {
+    animation: randomColor 5s infinite;
+  }
+  
+  .navbar .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .navbar .nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+  }
+  
+  .navbar .nav-icons a {
+    color: white;
+    font-size: 24px;
+    margin-left: 10px;
+  }
+  
+  .navbar .nav-icons a:hover {
+    color: #ffcc00;
+  }
+  
+  .logo-text:hover {
+    transform: rotate(360deg) scale(1.1);
+    letter-spacing: 2px;
+  }
   

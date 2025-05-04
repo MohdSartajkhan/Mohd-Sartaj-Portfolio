@@ -5,22 +5,22 @@ import './Testimonials.css';
 
 const testimonials = [
   {
-    name: "Ravi Sharma",
+    name: "Ayushi Dixit",
     role: "Hackathon Teammate",
     feedback:
       "Sartaj is a passionate and proactive teammate. His work on the Instamart project was absolutely professional and dependable.",
   },
   {
-    name: "Priya Singh",
+    name: "Shivans prakash",
     role: "College Cultural Lead",
     feedback:
       "He brings creativity to both code and culture. A great combination of technical and artistic skills!",
   },
   {
-    name: "Ankit Verma",
-    role: "Android Developer",
+    name: "Mohd Asif",
+    role: "Team Leader At TCS",
     feedback:
-      "We worked together on the College Alert app. Sartaj’s backend integration and logic were rock solid!",
+      "Mohd sartaj is very passionate about his work and he finds solution that is optimal to both future aspects and present approach",
   },
 ];
 
